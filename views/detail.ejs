@@ -13,20 +13,43 @@
       crossorigin="anonymous"
     />
 
+    <link rel="stylesheet" href="/public/main.css" />
+
     <title>윤산의 익명 게시판</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <style>
-      .list {
-        width: 500px;
-        margin: 20px auto 0px auto;
-        text-align: center;
+      .detail-page {
+        margin: 20px 0px 0px 20px;
       }
     </style>
+    <!-- <script type="text/javascript">
+      $(".delete-button").click(function (e) {
+        let contentNumber = e.target.dataset.id;
+
+        $.ajax({
+          method: "DELETE",
+          url: "/delete",
+          data: { _id: contentNumber },
+        }).done((result) => {
+          window.location.reload();
+        });
+      });
+    </script> -->
   </head>
   <body>
     <%- include('nav.html') %>
-    <div class="list">
-      <h3>환영합니다!</h3>
+
+    <div class="card container mt-4" style="width: 500px">
+      <div class="card-body">
+        <h5 class="card-title"><%= detailPosts.title %></h5>
+        <p class="card-text"><%= detailPosts.content %></p>
+        <a href="/list" class="btn btn-primary">뒤로 가기</a>
+        <a href="#" class="btn btn-primary">수정하기</a>
+      </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script></script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

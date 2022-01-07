@@ -45,11 +45,23 @@
   <body>
     <%- include('nav.html') %>
     <div class="write-box">
-      <form action="/add" method="POST">
+      <form action="/edit?_method=PUT" method="POST">
         <!-- 꼭 있어야 하는 속성 2개 -->
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">제목</label>
-          <input type="text" class="form-control" id="title-box" name="title" />
+          <input
+            type="text"
+            value="<%= editPosts._id %>"
+            name="id"
+            style="display: none"
+          />
+          <input
+            value="<%= editPosts.title %>"
+            type="text"
+            class="form-control"
+            id="title-box"
+            name="title"
+          />
           <div id="title_count">(0 / 20)</div>
         </div>
         <div class="mb-3">
@@ -59,7 +71,9 @@
             class="form-control"
             id="content-box"
             name="content"
-          ></textarea>
+          >
+<%= editPosts.content %></textarea
+          >
           <div id="content_count">(0 / 100)</div>
         </div>
         <a href="/list" class="btn btn-primary">뒤로 가기</a>
